@@ -1,0 +1,30 @@
+[project]
+name = "generalized-twin"
+version = "1.0.0"
+description = "Reproduction code of the paper Explaining the Effects of Regularization on Phase Retrieval with the Generalized Twin Image"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+requires-python = ">=3.13"
+dependencies = [
+    "datasets>=5.0",
+    "deepinv",
+    "matplotlib>=3.11",
+    "numpy>=2.5",
+    "pillow>=12.0",
+    "torch==2.14.0",
+    "torchvision==0.29.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+deepinv = { git = "https://github.com/deepinv/deepinv.git", rev = "c5840d6ceb37384a938ee327626c67135f1028cf" }
+torch = [{ index = "pytorch-cu130", marker = "sys_platform == 'linux'" }]
+torchvision = [{ index = "pytorch-cu130", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
